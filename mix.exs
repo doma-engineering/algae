@@ -40,7 +40,7 @@ defmodule Algae.Mixfile do
 
       {:quark,       "~> 2.2"},
       {:type_class,  "~> 1.2"},
-      {:witchcraft,  "~> 1.0"},
+      {:witchcraft, git: "https://github.com/witchcrafters/witchcraft.git", ref: "70317fa"},
     ]
   end
 
