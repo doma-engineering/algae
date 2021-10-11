@@ -38,9 +38,9 @@ defmodule Algae.Mixfile do
       {:earmark,     "~> 1.4",  only: :dev,                 runtime: false},
       {:ex_doc,      "~> 0.23", only: :dev,                 runtime: false},
 
-      {:quark,       "~> 2.2"},
+      {:quark, git: "https://github.com/witchcrafters/quark.git", ref: "b05a8a0"},
       {:type_class,  "~> 1.2"},
-      {:witchcraft, git: "https://github.com/witchcrafters/witchcraft.git", ref: "70317fa"},
+      {:witchcraft, git: "https://github.com/doma-engineering/witchcraft.git", ref: "9c31c75"},
     ]
   end
 
