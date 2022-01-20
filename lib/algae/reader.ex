@@ -16,17 +16,17 @@ defmodule Algae.Reader do
       ...>   monad %Algae.Reader{} do
       ...>     count    <- ask &Map.get(&1, :count)
       ...>     bindings <- ask()
-      ...>     return (count == Map.size(bindings))
+      ...>     return (count == Kernel.map_size(bindings))
       ...>   end
       ...>
       ...> sample_bindings = %{count: 3, a: 1, b: 2}
       ...> correct_count   = run(correct, sample_bindings)
-      ...> "Correct count for #{inspect sample_bindings}? #{correct_count}"
-      "Correct count for %{a: 1, b: 2, count: 3}? true"
+      ...> "Correct count for %{a: 1, b: 2, count: 3}? true" == "Correct count for #{inspect sample_bindings}? #{correct_count}"
+      true
       ...>
       ...> bad_bindings = %{count: 100, a: 1, b: 2}
       ...> bad_count    = run(correct, bad_bindings)
-      ...> "Correct count for #{inspect bad_bindings}? #{bad_count}"
+      ...> _ = "Correct count for #{inspect bad_bindings}? #{bad_count}"
       "Correct count for %{a: 1, b: 2, count: 100}? false"
 
   Example adapted from
@@ -34,11 +34,11 @@ defmodule Algae.Reader do
 
   """
 
-  alias  __MODULE__
+  alias __MODULE__
   import Algae
-  use    Witchcraft
+  use Witchcraft
 
-  defdata fun()
+  defdata(fun())
 
   @doc """
   `Reader` constructor.
@@ -128,7 +128,7 @@ defmodule Algae.Reader do
   def ask(fun) do
     monad %Reader{} do
       e <- ask
-      return fun.(e)
+      return(fun.(e))
     end
   end
 
@@ -151,7 +151,7 @@ defmodule Algae.Reader do
   def local(reader, fun) do
     monad %Reader{} do
       e <- ask
-      return run(reader, fun.(e))
+      return(run(reader, fun.(e)))
     end
   end
 end

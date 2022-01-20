@@ -1,2 +1,2 @@
 ExUnit.start()
-Code.load_file("test/support.exs")
+Code.require_file("test/support.exs")
