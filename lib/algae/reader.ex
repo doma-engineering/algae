@@ -12,7 +12,7 @@ defmodule Algae.Reader do
 
       iex> use Witchcraft
       ...>
-      ...> correct =
+      iex> correct =
       ...>   monad %Algae.Reader{} do
       ...>     count    <- ask &Map.get(&1, :count)
       ...>     bindings <- ask()
