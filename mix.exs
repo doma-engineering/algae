@@ -20,7 +20,8 @@ defmodule Algae.Mixfile do
       # Hex
       description:
         "Bootstrapped algebraic data types for Elixir, forked by doma for maintenance and testing packagesets",
-      package: package()
+      package: package(),
+      xref: [exclude: [Jason]]
     ]
   end
 
@@ -44,8 +45,8 @@ defmodule Algae.Mixfile do
       {:earmark, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
       {:doma_quark, "2.3.2-doma2"},
-      {:type_class, "~> 1.2"},
-      {:doma_witchcraft, "~> 1.0.4-doma"}
+      {:type_class, path: "/Users/thunderbook/Work/doma/type_class"},
+      {:doma_witchcraft, path: "/Users/thunderbook/Work/doma/witchcraft"}
     ]
   end
 
