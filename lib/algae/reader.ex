@@ -127,7 +127,7 @@ defmodule Algae.Reader do
   @spec ask((any() -> any())) :: t()
   def ask(fun) do
     monad %Reader{} do
-      e <- ask
+      e <- ask()
       return(fun.(e))
     end
   end
@@ -150,7 +150,7 @@ defmodule Algae.Reader do
   @spec local(t(), (any() -> any())) :: any()
   def local(reader, fun) do
     monad %Reader{} do
-      e <- ask
+      e <- ask()
       return(run(reader, fun.(e)))
     end
   end

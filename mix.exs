@@ -43,9 +43,9 @@ defmodule Algae.Mixfile do
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:earmark, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
-      {:doma_quark, "2.3.2-doma2"},
-      {:type_class, "~> 1.2"},
-      {:doma_witchcraft, "~> 1.0.4-doma"}
+      {:doma_quark, path: "/Users/thunderbook/Work/doma/quark", override: true},
+      {:doma_type_class, path: "/Users/thunderbook/Work/doma/type_class"},
+      {:doma_witchcraft, path: "/Users/thunderbook/Work/doma/witchcraft"}
     ]
   end
 
