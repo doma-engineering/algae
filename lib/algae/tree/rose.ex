@@ -31,11 +31,6 @@ defmodule Algae.Tree.Rose do
   @type rose :: any()
   @type forest :: [t()]
 
-  defdata do
-    rose    :: any()
-    forest :: [t()]
-  end
-
   @doc """
   Create a simple `Algae.Rose` tree, with an empty forest and one rose.
 
@@ -48,8 +43,10 @@ defmodule Algae.Tree.Rose do
       }
 
   """
-  @spec new(rose()) :: t()
-  def new(rose), do: %Rose{rose: rose, forest: []}
+  defdata do
+    rose    :: any()
+    forest :: [t()]
+  end
 
   @doc """
   Create an `Algae.Rose` tree, passing a forest and a rose.

@@ -158,7 +158,7 @@ defmodule Algae do
     caller_module = __CALLER__.module
 
     case ast do
-      {:none, _, _} = type ->
+      {:none, _, _} = _type ->
         embedded_data_ast()
 
       {:\\, _, [{:::, _, [module_ctx, type]}, default]} ->

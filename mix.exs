@@ -6,10 +6,12 @@ defmodule Algae.Mixfile do
       app: :doma_algae,
       aliases: aliases(),
       deps: deps(),
+      preferred_cli_env: [quality: :test],
 
       # Versions
-      version: "1.3.1-doma",
+      version: "1.3.2-doma",
       elixir: "~> 1.9",
+      elixirc_paths: elixirc_paths(Mix.env()),
 
       # Docs
       name: "Algae",
@@ -31,6 +33,9 @@ defmodule Algae.Mixfile do
     ]
   end
 
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
+
   defp deps do
     [
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
@@ -38,9 +43,9 @@ defmodule Algae.Mixfile do
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:earmark, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
-      {:doma_quark, "2.3.2-doma2"},
-      {:type_class, "~> 1.2"},
-      {:doma_witchcraft, "~> 1.0.4-doma"}
+      {:doma_quark, "~> 2.3.3-doma"},
+      {:doma_type_class, "~> 1.2.11-blazing"},
+      {:doma_witchcraft, "~> 1.0.6-doma"}
     ]
   end
 
